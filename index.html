@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- SEO -->
+  <title>Expressões da Emoção</title>
+  <meta name="description" content="Explore conteúdos sobre expressões da emoção. Descubra nosso menu principal, informações sobre nós e formas de contato.">
+  <meta name="keywords" content="emoções, expressões, sentimentos, psicologia, bem-estar">
+  <meta name="author" content="Expressões da Emoção">
+
+  <!-- Idioma e Localização -->
+  <meta http-equiv="Content-Language" content="pt-BR">
+  <meta name="geo.region" content="BR-PE">
+  <meta name="geo.placename" content="Jaboatão dos Guararapes, Pernambuco, Brasil">
+  <meta name="geo.position" content="-8.112,-35.015">
+  <meta name="ICBM" content="-8.112, -35.015">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Expressões da Emoção">
+  <meta property="og:description" content="Explore conteúdos sobre expressões da emoção. Descubra nosso menu principal, informações sobre nós e formas de contato.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.expressõesdaemoção.com">
+  <meta property="og:image" content="https://www.expressõesdaemoção.com/Tarefas/Logotipo%20[João].png">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Expressões da Emoção">
+  <meta name="twitter:description" content="Explore conteúdos sobre expressões da emoção. Descubra nosso menu principal, informações sobre nós e formas de contato.">
+  <meta name="twitter:image" content="https://www.expressõesdaemoção.com/Tarefas/Logotipo%20[João].png">
+  <meta name="twitter:site" content="@expressao_emocao">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #00ff08, #fff700);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .home-container {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      text-align: center;
+      padding: 40px;
+      max-width: 800px;
+      width: 90%;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .home-container img {
+      width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 15px;
+      text-shadow: 0 0 8px #f6ff00, 0 0 15px #26ff00;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    h2 {
+      font-size: 22px;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .btn-menu {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+      background: linear-gradient(135deg, #00ff08, #fff700);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      margin: 10px;
+    }
+
+    .btn-menu:hover {
+      background: linear-gradient(135deg, #000000, #777777);
+      transform: scale(1.05);
+      color: #00ff08;
+    }
+
+    .btn-menu.active {
+      background: #333;
+      color: #fff;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="home-container" role="main" aria-labelledby="titulo-principal">
+    <img src="Tarefas/Logotipo [João].png" alt="Logotipo da Expressões da Emoção">
+    <h1 id="titulo-principal">Expressões das Emoções</h1>
+    <h2>Bem-vindo(a) à nossa área!</h2>
+    <p>
+      Aqui você encontra os caminhos para explorar nosso conteúdo.  
+      Clique abaixo para acessar o <strong>Menu Principal</strong> e mergulhar nesse universo.
+    </p>
+    <nav aria-label="Menu principal">
+      <a href="Menu Principal.html" class="btn-menu">MENU</a>
+      <a href="Sobre.html" class="btn-menu">Sobre</a>
+      <a href="Contato.html" class="btn-menu">Contato</a>
+    </nav>
+    <footer role="contentinfo">
+      © 2026 Expressões da Emoção — Todos os direitos reservados
+    </footer>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Destacar botão ativo
+    const buttons = document.querySelectorAll(".btn-menu");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
