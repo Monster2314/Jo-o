@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expressões da Emoção</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffea00, #11ff00);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Quadro principal */
+    .layout-quadro {
+      width: 95%;
+      height: 95%;
+      background: rgb(255, 252, 251);
+      border: 1px solid #000000;
+      border-radius: 25px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: fadeIn 1.2s ease-in-out;
+      position: relative;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: rgb(255, 252, 251);
+      position: relative;
+    }
+
+    header img {
+      width: 150px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 10px 0;
+      font-size: 36px;
+      font-weight: bold;
+      color: #ffed49;
+      text-shadow: 0 0 10px #126e00, 0 0 20px #26ff00;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 10px 0;
+      font-size: 22px;
+      color: #000000;
+    }
+
+    /* Botão Voltar Home */
+    .btn-home {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #000;
+      background: linear-gradient(135deg, #ffffff, #ffe600);
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-home:hover {
+      background: linear-gradient(135deg, #000000, #777777);
+      transform: scale(1.05);
+      color: #00ff08;
+    }
+
+    /* Barra de botões */
+    .accordion-container {
+      display: flex;
+      justify-content: space-around;
+      border-top: 3px solid #000000;
+      border-bottom: 3px solid #000000;
+      padding: 10px;
+      background: linear-gradient(to right, #006122, #1aff00);
+    }
+
+    .accordion {
+      flex: 1;
+      margin: 0 8px;
+      padding: 15px;
+      cursor: pointer;
+      background: #fff;
+      color: #868a00;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .accordion:hover {
+      background: linear-gradient(to right, #006f27, #000000);
+      color: #ffea00;
+      transform: scale(1.05);
+    }
+
+    .accordion.active {
+      background: #ffffff;
+      color: #000;
+      box-shadow: 0 0 15px rgb(51, 255, 0);
+    }
+
+    /* Painéis */
+    .panel {
+      flex: 1;
+      display: none;
+      padding: 25px;
+      background: #fafafa;
+      border-top: 1px solid #ccc;
+      overflow-y: auto;
+      animation: slideIn 0.5s ease;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 15px;
+      color: #8f8f8f;
+    }
+  </style>
+</head>
+<body>
+  <main class="layout-quadro">
+    <header>
+      <a href="Expressões da Emoção.html" class="btn-home">Voltar Home</a>
+      <img src="Designers/Logotipo [João].png" alt="Logotipo">
+      <h1>Expressões das Emoções</h1>
+      <h2>MENU</h2>
+    </header>
+
+    <div class="accordion-container">
+      <button class="accordion" data-target="panel1">O que são Emoções?</button>
+      <button class="accordion" data-target="panel2">Catálogo de Expressões</button>
+      <button class="accordion" data-target="panel3">Artigos e Pesquisas</button>
+      <button class="accordion" data-target="panel4">Estudo da Ciência</button>
+      <button class="accordion" data-target="panel5">Museu das Emoções/Expressões</button>
+    </div>
+
+    <div id="panel1" class="panel">
+<h3>🌟 O que são Emoções? 🌟</h3>
+<p>As emoções são como <strong>cores invisíveis</strong> que pintam nossas experiências diárias 🎨. 
+Elas são respostas naturais do corpo e da mente diante de situações, lembranças ou interações. 
+Podem surgir de forma intensa e rápida, como um raio ⚡, ou suave e duradoura, como uma brisa leve 🌬️.</p>
+
+<h3>🔎 Definição</h3>
+<p>Emoções são estados afetivos que influenciam nossos pensamentos, comportamentos e até mesmo nosso corpo. 
+Funcionam como um <strong>sistema de alerta interno</strong>, ajudando-nos a reagir ao ambiente e a dar significado às nossas vivências.</p>
+
+<h3>🧠 Origem das Emoções</h3>
+<p>Elas nascem no cérebro, especialmente em áreas como a <strong>amígdala</strong> e o <strong>sistema límbico</strong>, 
+que processam estímulos e liberam substâncias químicas. Isso explica por que sentimos 
+<span>coração acelerado ❤️</span>, <span>mãos suadas 🤲</span> ou até <span>borboletas no estômago 🦋</span> em determinadas situações.</p>
+
+<h3>🌍 Funções das Emoções</h3>
+<ul>
+    <li>🛡️ <strong>Sobrevivência:</strong> atuam como mecanismos de defesa e proteção.</li>
+    <li>🤝 <strong>Conexão social:</strong> fortalecem vínculos e aproximam pessoas.</li>
+    <li>🚀 <strong>Motivação:</strong> impulsionam ações e decisões.</li>
+    <li>🔮 <strong>Autoconhecimento:</strong> ajudam na reflexão e no crescimento pessoal.</li>
+</ul>
+
+<h3>✨ Emoções e Vida</h3>
+<p>Sem emoções, a vida seria como um filme sem trilha sonora 🎬🎶. 
+Elas dão intensidade às nossas histórias, transformam momentos simples em memórias inesquecíveis 
+e nos lembram que somos humanos, cheios de contrastes e profundidade 🌈.</p>
+    </div>
+
+    <div id="panel2" class="panel">
+<h3>🌍 Emoções e Suas Expressões</h3>
+<p>As emoções são estados afetivos intensos que surgem como resposta a estímulos internos ou externos. Elas envolvem:</p>
+
+<ul>
+    <li>⚡ <strong>Fisiologia:</strong> alterações no corpo (batimentos acelerados, suor, tensão muscular).</li>
+    <li>💭 <strong>Cognição:</strong> interpretação mental da situação.</li>
+    <li>🎭 <strong>Comportamento:</strong> expressão e ação visíveis.</li>
+</ul>
+
+<p>São experiências universais, presentes em todos os seres humanos, e desempenham papel essencial na sobrevivência, na comunicação e na vida social.</p>
+
+<h3>📖 Pesquisas Históricas Fundamentais</h3>
+<p>🐒 <strong>Charles Darwin (1872)</strong> – A Expressão das Emoções no Homem e nos Animais</p>
+<p>Darwin mostrou que expressões faciais e corporais são universais e têm origem evolutiva.</p>
+
+<p>❤️ <strong>William James & Carl Lange (século XIX)</strong></p>
+<p>Teoria: As emoções surgem da percepção das mudanças fisiológicas no corpo.</p>
+
+<p>⚖️ <strong>Cannon-Bard (década de 1920)</strong></p>
+<p>Teoria: Emoção e reação corporal ocorrem simultaneamente.</p>
+
+<p>🌐 <strong>Paul Ekman (século XX)</strong></p>
+<p>Identificou seis emoções básicas universais: alegria, tristeza, medo, raiva, surpresa e nojo.</p>
+
+<h3>🎭 Emoções e Linguagem Corporal</h3>
+<ul>
+    <li>👀 <strong>Expressões faciais:</strong> rápidas, automáticas e difíceis de controlar.</li>
+    <li>✋ <strong>Gestos e posturas:</strong> revelam estados emocionais antes mesmo da fala.</li>
+    <li>⚡ <strong>Microexpressões:</strong> pequenos movimentos faciais que revelam emoções ocultas.</li>
+</ul>
+
+<h3>🌟 Importância</h3>
+<ul>
+    <li>🗣️ Comunicação não verbal</li>
+    <li>🤝 Empatia</li>
+    <li>🧩 Regulação social</li>
+    <li>🚨 Valor adaptativo</li>
+</ul>
+
+<h3>🏛️ Exemplos Históricos</h3>
+<p>🏺 Roma Antiga: Oradores como Cícero usavam gestos e entonações para despertar emoções no público.</p>
+<p>🎭 Teatro de Shakespeare: Expressões corporais eram fundamentais para transmitir sentimentos intensos.</p>
+<p>🎨 Arte Renascentista: Pintores como Leonardo da Vinci buscavam representar emoções em rostos e gestos.</p>
+<p>✊ Movimentos sociais: Revoluções e protestos foram impulsionados por emoções coletivas como indignação e esperança.</p>
+
+<h3>🔑 Conclusão</h3>
+<p>As pesquisas e artigos sobre emoções mostram que elas são:</p>
+<ul>
+    <li>🌱 Universais (biológicas e evolutivas).</li>
+    <li>🌍 Culturais (moldadas por valores e normas sociais).</li>
+    <li>🧠 Complexas (envolvem corpo, mente e sociedade).</li>
+</ul>
+<p>A linguagem corporal é o veículo que torna visíveis esses estados internos, permitindo comunicação, empatia e coesão social.</p>
+    </div>
+
+    <div id="panel3" class="panel">
+<h3>📖 Pesquisas Clássicas</h3>
+    <ul>
+        <li>🐒 <strong>Charles Darwin (1872)</strong> – <em>The Expression of the Emotions in Man and Animals</em></li>
+        <p>Estudo pioneiro que demonstrou a universalidade das expressões emocionais e sua origem evolutiva.</p>
+
+        <li>📚 <strong>William James & Carl Lange (final do século XIX)</strong> – <em>James-Lange Theory of Emotion</em></li>
+        <p>Proposta de que emoções derivam da percepção das alterações fisiológicas do corpo.</p>
+
+        <li>⚖️ <strong>Walter Cannon & Philip Bard (1920s)</strong> – <em>Cannon-Bard Theory</em></li>
+        <p>Defesa de que emoção e reação corporal ocorrem simultaneamente.</p>
+    </ul>
+
+    <h3>📊 Pesquisas do Século XX</h3>
+    <ul>
+        <li>😀 <strong>Paul Ekman (1960s–1990s)</strong></li>
+        <p>Estudos sobre expressões faciais universais e desenvolvimento da análise de microexpressões.</p>
+
+        <li>🧩 <strong>Silvan Tomkins (1962)</strong> – <em>Affect Theory</em></li>
+        <p>Investigação sobre afetos primários e sua relação com motivação e comportamento.</p>
+
+        <li>🔎 <strong>Richard Lazarus (1984)</strong> – <em>Cognitive-Mediational Theory</em></li>
+        <p>Pesquisas sobre avaliação cognitiva como fator determinante da experiência emocional.</p>
+    </ul>
+
+    <h3>🧠 Pesquisas Contemporâneas</h3>
+    <ul>
+        <li>📖 <strong>Antonio Damasio (1994)</strong> – <em>Descartes’ Error</em></li>
+        <p>Estudos neurocientíficos que relacionam emoções à tomada de decisão e à consciência.</p>
+
+        <li>🐀 <strong>Joseph LeDoux (1996)</strong> – <em>The Emotional Brain</em></li>
+        <p>Pesquisas sobre os circuitos neurais do medo e o papel da amígdala.</p>
+
+        <li>🔬 <strong>Jaak Panksepp (1998)</strong> – <em>Affective Neuroscience</em></li>
+        <p>Investigação sobre sistemas emocionais básicos no cérebro e sua relação com comportamento.</p>
+    </ul>
+
+    <h3>📚 Pesquisas Aplicadas</h3>
+    <ul>
+        <li>💡 <strong>Daniel Goleman (1995)</strong> – <em>Emotional Intelligence</em></li>
+        <p>Estudos sobre inteligência emocional e sua importância em contextos sociais e profissionais.</p>
+
+        <li>🌈 <strong>Barbara Fredrickson (2001)</strong> – <em>Broaden-and-Build Theory</em></li>
+        <p>Pesquisas sobre emoções positivas e como elas ampliam recursos cognitivos e sociais.</p>
+
+        <li>🧪 <strong>Lisa Feldman Barrett (2006–2017)</strong> – <em>Theory of Constructed Emotion</em></li>
+        <p>Defesa de que emoções são construções do cérebro a partir de experiências e contextos.</p>
+    </ul>
+
+    <h3>🔑 Conclusão</h3>
+    <p>Esses artigos e pesquisas mostram a evolução do campo:</p>
+    <ul>
+        <li>📜 De Darwin à neurociência moderna.</li>
+        <li>🧩 Da psicologia experimental às teorias cognitivas e culturais.</li>
+        <li>😀 Da análise das expressões faciais às investigações sobre inteligência emocional.</li>
+    </ul>
+    <p>✨ A ciência das emoções continua a expandir-se, integrando biologia, psicologia, filosofia e sociologia.</p>
+    </div>
+
+    <div id="panel4" class="panel">
+<h3>📑 O Estudo da Ciência das Emoções e Expressões</h3>
+<p>A ciência das emoções é um campo interdisciplinar que reúne neurociência, psicologia, biologia, filosofia e sociologia para compreender como os estados afetivos se manifestam e influenciam o ser humano. O estudo das emoções e expressões não se limita a descrevê-las, mas busca investigar seus mecanismos, funções e impactos em diferentes dimensões da vida.</p>
+
+<h3>🧠 Neurociência das Emoções</h3>
+<ul>
+<li><strong>Sistema límbico:</strong> amígdala, hipocampo e hipotálamo regulam emoções.</li>
+<li><strong>Neurotransmissores:</strong> dopamina, serotonina e noradrenalina modulam humor, motivação e alerta.</li>
+<li><strong>Neuroimagem:</strong> fMRI e PET scan permitem observar áreas cerebrais ativadas em tempo real.</li>
+</ul>
+<p>Esses estudos mostram que emoções não são apenas fenômenos subjetivos, mas processos biológicos mensuráveis.</p>
+
+<h3>📚 Psicologia das Emoções</h3>
+<ul>
+<li><strong>Teorias clássicas:</strong> James-Lange, Cannon-Bard e Schachter-Singer.</li>
+<li><strong>Psicologia cognitiva:</strong> avalia como julgamentos mentais determinam intensidade e qualidade das emoções.</li>
+<li><strong>Psicologia social:</strong> analisa como emoções moldam interações e dinâmicas coletivas.</li>
+</ul>
+<p>A psicologia busca compreender como emoções organizam a vida mental e influenciam decisões.</p>
+
+<h3>🧬 Biologia e Fisiologia</h3>
+<ul>
+<li><strong>Respostas fisiológicas:</strong> alterações cardíacas, respiratórias e hormonais.</li>
+<li><strong>Função evolutiva:</strong> regulam comportamentos de sobrevivência e reprodução.</li>
+<li><strong>Homeostase:</strong> ajudam a manter equilíbrio interno.</li>
+</ul>
+<p>Esses estudos revelam que emoções são parte essencial da biologia humana.</p>
+
+<h3>🎭 Expressões das Emoções</h3>
+<ul>
+<li><strong>Expressões faciais:</strong> universais e automáticas.</li>
+<li><strong>Microexpressões:</strong> movimentos sutis que revelam emoções ocultas.</li>
+<li><strong>Gestos e posturas:</strong> complementam a comunicação emocional.</li>
+<li><strong>Comunicação não verbal:</strong> essencial para empatia e confiança.</li>
+</ul>
+<p>Expressões emocionais constituem um sistema de comunicação universal.</p>
+
+<h3>📖 História das Pesquisas</h3>
+<ul>
+<li><strong>Darwin (1872):</strong> universalidade das expressões emocionais.</li>
+<li><strong>Ekman (século XX):</strong> identificação das emoções básicas.</li>
+<li><strong>Damasio (1990s):</strong> relação entre emoções e tomada de decisão.</li>
+<li><strong>LeDoux (1996):</strong> circuitos neurais do medo.</li>
+<li><strong>Barrett (2000s):</strong> emoções como construções do cérebro.</li>
+</ul>
+
+<h3>🌍 Dimensão Cultural e Social</h3>
+<ul>
+<li><strong>Normas culturais:</strong> regulam como emoções podem ser expressas.</li>
+<li><strong>Dimensão simbólica:</strong> emoções interpretadas por significados coletivos.</li>
+<li><strong>Impacto social:</strong> organizam grupos, movimentos e instituições.</li>
+</ul>
+
+<h3>✨ Conclusão</h3>
+<p>O estudo científico das emoções e expressões revela que elas são:</p>
+<ul>
+<li><strong>Biológicas:</strong> ligadas ao corpo e ao cérebro.</li>
+<li><strong>Psicológicas:</strong> estruturam cognição e comportamento.</li>
+<li><strong>Culturais:</strong> moldadas por valores e normas sociais.</li>
+<li><strong>Comunicativas:</strong> expressas por meio da linguagem corporal e facial.</li>
+    </div>
+
+    <div id="panel5" class="panel">
+<h3>🌍 História das Emoções</h3>
+<p>💡 As emoções são experiências humanas fundamentais que atravessam a história e a cultura. Elas moldaram sociedades, inspiraram 🎨 obras de arte e influenciaram decisões ⚖️ políticas e religiosas.</p>
+
+<h3>🏛️ Grécia Antiga</h3>
+<p>📜 Platão descrevia as emoções como forças a serem controladas pela razão. Aristóteles via as emoções como parte essencial da vida ética. Os estoicos, como Sêneca e Marco Aurélio, defendiam o domínio das paixões para alcançar 🕊️ tranquilidade interior.</p>
+
+<h3>🏺 Roma Antiga</h3>
+<p>🎤 Cícero estudava como despertar emoções no público para persuadir em discursos. A retórica romana dependia da capacidade de provocar 😨 medo, ✨ esperança ou 💖 compaixão.</p>
+
+<h3>⛪ Idade Média</h3>
+<p>✝️ A Igreja Católica via certas emoções como virtudes (amor, compaixão) e outras como pecados capitais (ira, inveja, luxúria). Santo Agostinho refletiu sobre o amor direcionado a Deus ou ao mundo, moldando a vida espiritual.</p>
+
+<h3>🎨 Renascimento</h3>
+<p>Com o florescimento das artes, as emoções ganharam destaque nas pinturas, literatura e música. Obras de Michelangelo e Leonardo da Vinci buscavam expressar sentimentos humanos. 🎭 Shakespeare explorava a complexidade emocional em personagens como Hamlet ou Otelo.</p>
+
+<h3>📚 Século XVII</h3>
+<p>🧠 Filósofos como René Descartes e Baruch Spinoza estudaram as paixões. Descartes escreveu “As Paixões da Alma”, enquanto Spinoza via as emoções como estados que aumentam ou diminuem nossa potência de agir.</p>
+
+<h3>🔬 Século XIX</h3>
+<p>🐒 Charles Darwin publicou “A Expressão das Emoções no Homem e nos Animais” (1872), mostrando que expressões faciais eram universais e evolutivas. 😀😢😠</p>
+<p>❤️ William James e Carl Lange propuseram que sentimos emoções porque percebemos mudanças fisiológicas no corpo.</p>
+
+<h3>🌐 Século XX</h3>
+<p>👀 Paul Ekman identificou seis emoções básicas universais: alegria, tristeza, medo, raiva, surpresa e nojo. Seus estudos foram aplicados em segurança, comunicação e diplomacia.</p>
+<p>🔥 Revoluções políticas foram impulsionadas por indignação e esperança. 🎶 A música romântica e 🎭 o expressionismo exploraram emoções intensas.</p>
+
+<h3>💻 Era Digital</h3>
+<p>📱 Redes sociais amplificam emoções coletivas, criando ondas de indignação ou entusiasmo. A neurociência investiga os mecanismos cerebrais das emoções, enquanto a 🤖 inteligência artificial busca reconhecê-las.</p>
+
+<h3>🔑 Conclusão</h3>
+<p>✨ Ao longo da história, as emoções foram vistas como paixões a serem controladas, virtudes a serem cultivadas, expressões artísticas a serem celebradas e fenômenos científicos a serem estudados.</p>
+
+<h3>🧠 Definição de Emoções</h3>
+<p>As emoções são estados afetivos intensos que surgem como resposta a estímulos internos ou externos, envolvendo ⚡ fisiologia, 💭 cognição e 🎭 comportamento.</p>
+
+<h3>😀 Principais Emoções</h3>
+<ul>
+  <li>😊 <strong>Alegria:</strong> promove vínculos sociais e reforça comportamentos positivos.</li>
+  <li>😢 <strong>Tristeza:</strong> favorece reflexão e busca de apoio.</li>
+  <li>😨 <strong>Medo:</strong> prepara o corpo para lutar ou fugir.</li>
+  <li>😡 <strong>Raiva:</strong> mobiliza energia contra injustiças.</li>
+  <li>😲 <strong>Surpresa:</strong> aumenta atenção e adaptação.</li>
+  <li>🤢 <strong>Nojo:</strong> protege contra substâncias nocivas.</li>
+</ul>
+
+<h3>🤝 Importância da Linguagem Corporal</h3>
+<p>👀 Expressões faciais e ✋ gestos comunicam emoções antes mesmo da fala. Darwin mostrou que elas são universais, e Ekman comprovou que microexpressões revelam sentimentos ocultos.</p>
+
+<ul>
+  <li>🗣️ Facilita a comunicação não verbal.</li>
+  <li>💞 Promove empatia.</li>
+  <li>⚖️ Regula interações sociais.</li>
+  <li>🚨 Tem valor adaptativo em situações de perigo.</li>
+</ul>
+
+<p>🎤 Oradores romanos, 🎭 atores de Shakespeare e até 📱 emojis digitais mostram como a linguagem corporal e suas representações sempre foram cruciais para expressar emoções.</p>
+    </div>
+
+    <footer>
+      © 2026 Expressões da Emoção — Todos os direitos reservados
+    </footer>
+  </main>
+
+  <script>
+    const buttons = document.querySelectorAll(".accordion");
+    const panels = document.querySelectorAll(".panel");
+
+    // Função para ativar um painel específico
+    const activatePanel = (targetId) => {
+      panels.forEach(panel => panel.classList.remove("active"));
+      buttons.forEach(b => b.classList.remove("active"));
+
+      const targetPanel = document.getElementById(targetId);
+      const targetBtn = document.querySelector(`[data-target="${targetId}"]`);
+
+      if (targetPanel && targetBtn) {
+        targetPanel.classList.add("active");
+        targetBtn.classList.add("active");
+        // Salva a escolha no Local Storage
+        localStorage.setItem("activeMenuPanel", targetId);
+      }
+    };
+
+    // 1. Verificar se existe um painel salvo ao carregar a página
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedPanel = localStorage.getItem("activeMenuPanel");
+      if (savedPanel) {
+        activatePanel(savedPanel);
+      }
+    });
+
+    // 2. Evento de clique nos botões
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-target");
+        activatePanel(targetId);
+      });
+    });
+  </script>
+  
+</body>
+</html>

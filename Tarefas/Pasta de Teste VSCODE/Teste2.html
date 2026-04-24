@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu Emocional</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+    }
+
+    nav {
+      background: #333;
+      color: #fff;
+      padding: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav > ul > li {
+      padding: 15px 20px;
+      cursor: pointer;
+    }
+
+    nav ul li:hover {
+      background: #444;
+    }
+
+    /* Submenu */
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #444;
+      min-width: 200px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li:hover > ul {
+      display: block;
+    }
+
+    nav ul li ul li {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    nav ul li ul li:hover {
+      background: #555;
+    }
+
+    /* Rodapé */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li>Ferramentas Interativas
+        <ul>
+          <li>Quiz
+            <ul>
+              <li>Simulador de Emoções</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>O que são Emoções?
+        <ul>
+          <li>Definição Geral
+            <ul>
+              <li>As Emoções Principais
+                <ul>
+                  <li>A Importância da Linguagem Corporal</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Catálogo de Expressões
+        <ul>
+          <li>Por Emoção
+            <ul>
+              <li>Por Microexpressões
+                <ul>
+                  <li>Diferenças Culturais</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Artigos e Pesquisas
+        <ul>
+          <li>Psicologia Aplicada
+            <ul>
+              <li>Estudos de Caso
+                <ul>
+                  <li>Dicas de Inteligência Emocional</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Rodapé</li>
+    </ul>
+  </nav>
+
+  <footer>
+    © 2026 - Portal das Emoções
+  </footer>
+
+</body>
+</html>

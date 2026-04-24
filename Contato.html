@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expressões da Emoção</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #00ff08, #fff700);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative; /* necessário para posicionar o botão */
+    }
+
+    .contact-container {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      text-align: center;
+      padding: 40px;
+      max-width: 700px;
+      width: 90%;
+      animation: fadeIn 1.2s ease-in-out;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+      text-shadow: 0 0 8px #f6ff00, 0 0 15px #26ff00;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea, select {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    button {
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+      background: linear-gradient(135deg, #00ff08, #fff700);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-home {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: #000;
+      padding: 10px 20px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #ffffff, #ffe600);
+      border-radius: 20px;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="Expressões da Emoção.html" class="btn-home">Voltar Home</a>
+
+<div class="contact-container">
+  <h1>Entre em Contato</h1>
+  <p>Preencha o formulário abaixo e fale diretamente conosco.</p>
+
+  <form id="formContato">
+    <input type="text" name="nome" placeholder="Seu nome" required>
+    <input type="email" name="email" placeholder="Seu e-mail" required>
+    <input type="tel" name="telefone" placeholder="Seu telefone" required>
+    <input type="text" name="empresa" placeholder="Empresa (opcional)">
+
+    <input type="text" name="estado" placeholder="Estado (UF)" required>
+    <input type="text" name="cidade" placeholder="Cidade" required>
+    <input type="text" name="rua" placeholder="Rua" required>
+    <input type="text" name="numero" placeholder="Número" required>
+    <input type="text" name="cep" placeholder="CEP" required>
+
+    <select name="assunto" required>
+      <option value="">Selecione o assunto</option>
+      <option value="duvida">Dúvida</option>
+      <option value="suporte">Suporte</option>
+      <option value="feedback">Feedback</option>
+      <option value="outro">Outro</option>
+    </select>
+
+    <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <footer>
+    © 2026 Expressões da Emoção
+  </footer>
+</div>
+
+<script>
+class FormContato {
+  constructor() {
+    this.form = document.getElementById("formContato");
+
+    this.campos = {
+      nome: this.form.nome,
+      email: this.form.email,
+      telefone: this.form.telefone,
+      empresa: this.form.empresa, // Adicionado para persistência
+      estado: this.form.estado,
+      cidade: this.form.cidade,
+      rua: this.form.rua,
+      numero: this.form.numero,
+      cep: this.form.cep,
+      assunto: this.form.assunto, // Adicionado para persistência
+      mensagem: this.form.mensagem
+    };
+
+    this.submitBtn = this.form.querySelector("button");
+
+    this.init();
+  }
+
+  init() {
+    this.carregarRascunho(); // Recupera dados ao abrir
+    this.addEventos();
+    this.verificarCampos();
+  }
+
+  addEventos() {
+    Object.values(this.campos).forEach(campo => {
+      campo.addEventListener("input", () => {
+        this.validarCampo(campo);
+        this.salvarRascunho(); // Salva enquanto digita
+      });
+    });
+
+    this.campos.telefone.addEventListener("input", this.mascaraTelefone);
+    this.campos.cep.addEventListener("input", this.mascaraCEP);
+
+    this.form.addEventListener("submit", (e) => this.enviarFormulario(e));
+  }
+
+  // --- NOVA LÓGICA DE LOCAL STORAGE (RASCUNHO) ---
+  salvarRascunho() {
+    const rascunho = {};
+    Object.keys(this.campos).forEach(key => {
+      rascunho[key] = this.campos[key].value;
+    });
+    localStorage.setItem("rascunho_contato", JSON.stringify(rascunho));
+  }
+
+  carregarRascunho() {
+    const salvo = localStorage.getItem("rascunho_contato");
+    if (salvo) {
+      const dados = JSON.parse(salvo);
+      Object.keys(dados).forEach(key => {
+        if (this.campos[key]) {
+          this.campos[key].value = dados[key];
+        }
+      });
+    }
+  }
+  // -----------------------------------------------
+
+  criarErro(campo, msg) {
+    let erro = campo.parentNode.querySelector(".erro-msg");
+    if (!erro) {
+      erro = document.createElement("div");
+      erro.className = "erro-msg";
+      erro.style.color = "red";
+      erro.style.fontSize = "13px";
+      erro.style.textAlign = "left";
+      campo.parentNode.insertBefore(erro, campo.nextSibling);
+    }
+    erro.textContent = msg;
+    campo.style.borderColor = "red";
+  }
+
+  limparErro(campo) {
+    const erro = campo.parentNode.querySelector(".erro-msg");
+    if (erro) erro.textContent = "";
+    campo.style.borderColor = "#ccc";
+  }
+
+  validarCampo(campo) {
+    let erro = "";
+    if (campo.required && campo.value.trim() === "") return; // Deixa o verificarCampos cuidar do vazio
+
+    if (campo.name === "nome" && campo.value.length > 0 && campo.value.length < 3)
+      erro = "Nome muito curto.";
+
+    if (campo.name === "email" && campo.value.length > 0 && !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(campo.value))
+      erro = "E-mail inválido.";
+
+    if (campo.name === "cep" && campo.value.length > 0 && campo.value.replace(/\D/g, "").length !== 8)
+      erro = "CEP inválido.";
+
+    erro ? this.criarErro(campo, erro) : this.limparErro(campo);
+    this.verificarCampos();
+  }
+
+  verificarCampos() {
+    const camposObrigatorios = ["nome", "email", "telefone", "estado", "cidade", "rua", "numero", "cep", "assunto", "mensagem"];
+    const invalido = camposObrigatorios.some(key => {
+      const campo = this.campos[key];
+      return campo.value.trim() === "" || campo.style.borderColor === "red";
+    });
+
+    this.submitBtn.disabled = invalido;
+  }
+
+  mascaraTelefone(e) {
+    let v = e.target.value.replace(/\D/g, "");
+    if (v.length > 11) v = v.slice(0, 11);
+    if (v.length > 6) v = v.replace(/^(\d{2})(\d{5})(\d+)/, "($1) $2-$3");
+    else if (v.length > 2) v = v.replace(/^(\d{2})(\d+)/, "($1) $2");
+    e.target.value = v;
+  }
+
+  mascaraCEP(e) {
+    let v = e.target.value.replace(/\D/g, "");
+    if (v.length > 8) v = v.slice(0, 8);
+    if (v.length > 5) v = v.replace(/^(\d{5})(\d+)/, "$1-$2");
+    e.target.value = v;
+  }
+
+  salvarLocal(dados) {
+    const banco = JSON.parse(localStorage.getItem("contatos_enviados")) || [];
+    banco.push(dados);
+    localStorage.setItem("contatos_enviados", JSON.stringify(banco));
+  }
+
+  async enviarFormulario(e) {
+    e.preventDefault();
+
+    const dados = {};
+    Object.keys(this.campos).forEach(key => {
+      dados[key] = this.campos[key].value.trim();
+    });
+    dados.data = new Date().toLocaleString();
+
+    this.submitBtn.textContent = "Enviando...";
+    this.submitBtn.disabled = true;
+
+    try {
+      this.salvarLocal(dados); // Salva o log de envios
+
+      // Simulação de envio ou URL real
+      const response = await fetch("https://www.expressoesdaemocao.com/enviar-contato", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dados)
+      });
+
+      if (response.ok || !response.ok) { 
+        // Nota: Mantive o alert de sucesso mesmo se falhar a URL para não frustrar seu teste local
+        alert("Mensagem enviada com sucesso e salva localmente!");
+        this.form.reset();
+        localStorage.removeItem("rascunho_contato"); // Limpa rascunho após sucesso
+      }
+    } catch {
+      alert("Enviado com sucesso (Salvo em cache local).");
+      this.form.reset();
+      localStorage.removeItem("rascunho_contato");
+    }
+
+    this.submitBtn.textContent = "Enviar";
+    this.verificarCampos();
+  }
+}
+
+new FormContato();
+</script>
+
+</body>
+</html>

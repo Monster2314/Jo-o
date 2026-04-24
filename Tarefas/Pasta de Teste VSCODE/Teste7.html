@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    width: 300px;
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+details {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Estilo do cabeçalho clicável (a "pasta") */
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    padding: 10px;
+    background-color: #eee;
+    border-radius: 4px;
+    list-style: none; /* Remove a setinha padrão no Chrome/Safari */
+}
+
+summary:hover {
+    background-color: #ddd;
+}
+
+/* Conteúdo escondido */
+.content {
+    padding: 10px 10px 10px 25px;
+    color: #555;
+    background-color: #fff;
+}
+
+.content p {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.content p:hover {
+    color: #007acc; /* Cor do VS Code ao passar o mouse */
+}
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Accordion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Item da Pasta 1 -->
+        <details>
+            <summary>📂 Documentos</summary>
+            <div class="content">
+                <p>📄 relatorio.pdf</p>
+                <p>📄 notas.txt</p>
+            </div>
+        </details>
+
+        <!-- Item da Pasta 2 -->
+        <details>
+            <summary>📂 Imagens</summary>
+            <div class="content">
+                <p>🖼️ foto1.png</p>
+                <p>🖼️ foto2.jpg</p>
+            </div>
+        </details>
+    </div>
+
+</body>
+</html>
+
+</body>
+</html>

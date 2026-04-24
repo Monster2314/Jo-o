@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Esconde o checkbox real */
+.toggle-input {
+    display: none;
+}
+
+/* Estilo do botão */
+.toggle-button {
+    display: block;
+    background-color: #007acc;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Esconde o conteúdo inicialmente */
+.conteudo-aba {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out; /* Animação suave */
+    background-color: #f1f1f1;
+    border-radius: 0 0 5px 5px;
+}
+
+/* Quando o checkbox for clicado, o conteúdo abaixo dele exibe */
+.toggle-input:checked ~ .conteudo-aba {
+    max-height: 500px; /* Altura suficiente para o conteúdo */
+    padding: 15px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+    <!-- O checkbox escondido controla a aba -->
+    <input type="checkbox" id="toggle-aba" class="toggle-input">
+    
+    <!-- O label é o que o usuário clica -->
+    <label for="toggle-aba" class="toggle-button">Clique para abrir</label>
+
+    <!-- O conteúdo que aparece abaixo -->
+    <div class="conteudo-aba">
+        <p>Conteúdo da aba escondido que aparece aqui!</p>
+    </div>
+</div>
+</body>
+</html>

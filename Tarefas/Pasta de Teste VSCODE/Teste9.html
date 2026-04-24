@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Layout com Accordion</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+
+    /* Menu lateral */
+    .sidebar {
+      width: 250px;
+      background-color: #2c3e50;
+      color: white;
+      height: 100vh;
+      padding: 10px;
+    }
+
+    .accordion {
+      background-color: #34495e;
+      color: white;
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      margin-top: 5px;
+    }
+
+    .accordion:hover {
+      background-color: #3d566e;
+    }
+
+    .panel {
+      padding: 10px;
+      display: none;
+      background-color: #ecf0f1;
+      color: #2c3e50;
+    }
+
+    /* Área principal */
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Menu</h2>
+    <button class="accordion">Seção A</button>
+    <div class="panel">
+      <p>Opção A1</p>
+      <p>Opção A2</p>
+    </div>
+
+    <button class="accordion">Seção B</button>
+    <div class="panel">
+      <p>Opção B1</p>
+      <p>Opção B2</p>
+    </div>
+
+    <button class="accordion">Seção C</button>
+    <div class="panel">
+      <p>Opção C1</p>
+      <p>Opção C2</p>
+    </div>
+  </div>
+
+  <div class="content">
+    <h1>Área Principal</h1>
+    <p>Aqui você coloca o conteúdo que será exibido quando o usuário interagir com o menu lateral.</p>
+  </div>
+
+<script>
+  const acc = document.querySelectorAll(".accordion");
+  acc.forEach(button => {
+    button.addEventListener("click", function() {
+      const panel = this.nextElementSibling;
+      panel.style.display = panel.style.display === "block" ? "none" : "block";
+    });
+  });
+</script>
+
+</body>
+</html>
